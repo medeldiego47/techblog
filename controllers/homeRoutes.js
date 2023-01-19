@@ -12,7 +12,7 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     
     const postData = await Posting.findAll({
