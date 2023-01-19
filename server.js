@@ -7,13 +7,13 @@ const sequelize = require('./config/connection');
 const { env } = require('process');
 const { response } = require('express');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
+const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 const sess = {
     secret: process.env.DB_Secret,
-    cookie: {},
+    cookie: {maxAge: 3600},
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
