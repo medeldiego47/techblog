@@ -1,0 +1,49 @@
+{{#if posts.length}}
+<section>
+    <h2 class="text-center">Blog Posts</h2>
+    {{#each posts as |post|}}
+    
+<div class="container">
+	<div class="card mx-auto">
+			<div class="card-title">
+				<p class="heading text-center"> {{post.name}}</p>
+			</div>
+			
+			<p class="text-muted text-center">{{post.description}}</p>
+			
+
+			<div class="posted"><span>Posted on: {{post.date_created}}</span></div>
+            <div class="posted"><span>Posted by: {{post.user_name}}</span></div>
+	</div>
+</div>
+<br>
+    {{/each}}
+
+</section>
+{{/if}}
+
+<div class="container">
+    <form role="form" style="width: 400px; margin: 0 auto">
+        <h1>create a post</h1>
+
+        <div class="required-field-block">
+            <input type="text"name = "name" placeholder="Post Name" class="form-control" />
+            
+        </div>
+        <br />
+        <div class="form-group">
+            <div class="col-md-9">
+                <textarea class="form-control"  name="description" placeholder="what are you thinking" rows="5"
+                    style="width: 770px; height: 94px"></textarea>
+            </div>
+        </div>
+
+        <button id = "send" class="btn btn-primary">Send</button>
+    </form>
+</div>
+<br />
+<script src="/js/create.js"
+
+
+
+
