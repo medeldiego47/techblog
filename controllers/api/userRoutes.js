@@ -17,7 +17,6 @@ router.post('/signup',  async (req, res) => {
   }
 });
 
-//login route that finds one user by matching name and checks if the password also matches and then returns login message if correct will eventually render the homepage after login
 router.post('/login', async (req, res) => {
     try {
       const userData = await User.findOne({
@@ -49,7 +48,7 @@ router.post('/login', async (req, res) => {
       res.status(400).json(err);
     }
   });
-// route to destroy log in session if it exists should be hit when log out button is hit
+
   router.post('/logout', (req, res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {
