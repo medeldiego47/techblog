@@ -16,18 +16,7 @@ router.post('/signup',  async (req, res) => {
     res.status(400).json(err);
   }
 });
-//get all route used just to test if signup works
-router.get('/', withAuth ,async (req, res) => {
-  try {
-    const postData = await User.findAll({
-      attributes: ['id', 'name', 'email']
-      
-    });
-    res.status(200).json(postData.reverse());
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+
 //login route that finds one user by matching name and checks if the password also matches and then returns login message if correct will eventually render the homepage after login
 router.post('/login', async (req, res) => {
     try {
