@@ -81,4 +81,24 @@ router.get('/', withAuth ,async (req, res) => {
     }
   });
 
+  router.put('/:id', withAuth, (req, res) => {
+    Posting.update({
+            name: req.body.name,
+            description: req.body.description
+        }, {
+            where: {
+                id: req.params.id
+            }
+        }).then(postData => {
+            if (!postData) {
+                res.status(404).json({ message: 'no matching post' });
+                return;
+            }
+            res.json(postData);
+        })
+        .catch(err => {
+            console.log(err);
+            res.status(404).json(err);
+        });
+});
   module.exports = router;
